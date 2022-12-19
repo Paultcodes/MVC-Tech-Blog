@@ -6,6 +6,7 @@ const exphbs = require('express-handlebars');
 const { allowedNodeEnvironmentFlags } = require('process');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+const sequelize = require('./config/connection');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,4 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () =>
+    console.log(`Server running on ${PORT}. Visit http://localhost:${PORT}`)
+  );
+});
