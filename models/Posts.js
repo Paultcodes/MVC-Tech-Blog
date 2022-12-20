@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+//Change model names
+class Post extends Model {}
 
-class Posts extends Model {}
-
-Posts.init(
+Post.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -19,15 +19,7 @@ Posts.init(
 
     post: {
       type: DataTypes.TEXT,
-      allowNull: false,
-    },
-
-    comment_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'comments',
-        key: 'id',
-      },
+      allowNull: true,
     },
 
     user_id: {
@@ -42,8 +34,8 @@ Posts.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'posts',
+    modelName: 'post',
   }
 );
 
-module.exports = Posts;
+module.exports = Post;
