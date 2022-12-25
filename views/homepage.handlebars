@@ -1,0 +1,15 @@
+{{#each posts as |post|}}
+  <a href='/view/{{post.id}}'>
+    <div class='card'>
+      <div class='car-header'>
+        <h1>{{post.title}}</h1>
+        <p>Posted by {{post.user.user_name}} on 5/2/23</p>
+      </div>
+      <div class='card-text'>
+        <p>
+          {{post.post}}
+        </p>
+      </div>
+    </div>
+  </a>
+{{/each}}

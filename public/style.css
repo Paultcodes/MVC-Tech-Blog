@@ -1,0 +1,153 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(211, 208, 208);
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+.links {
+  display: flex;
+  gap: 3rem;
+}
+
+.navbar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 20px;
+  background-color: rgb(58, 57, 57);
+}
+
+.logo {
+  font-size: 30px;
+  background-color: rgb(211, 208, 208);
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.post-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3%;
+}
+
+.card-text {
+  text-align: center;
+}
+
+.card {
+  background-color: rgb(59, 59, 59);
+  width: 900px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.car-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-login {
+  text-align: center;
+}
+
+.submit-login {
+  width: 70px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: #295de3;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.comment-input {
+  width: 500px;
+}
+
+@media only screen and (max-width: 900px) {
+  .card {
+    width: 400px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 300px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}
+
+.input-section {
+  display: flex;
+  justify-content: space-around;
+  gap: 3rem;
+}
+
+.submit-signup {
+  width: 70px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: #295de3;
+}
+
+.single-post-text {
+  color: white
+}
+
+.comments-section {
+  background-color: antiquewhite;
+  height: 100px;
+  width: 800px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}

@@ -1,16 +1,30 @@
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const User = require('./models/User');
 
 const exphbs = require('express-handlebars');
 const { allowedNodeEnvironmentFlags } = require('process');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// const sess = {
+//   secret: 'gert34qgvfedsg4r3q4gdagf343',
+//   cookie: {
+//     maxAge: 24 * 60 * 60 * 1000,
+//   },
+//   resave: false,
+//   saveUninitialized: true,
+//   store: new SequelizeStore({
+//     db: sequelize,
+//   }),
+// };
+
+// app.use(session(sess));
 
 const hbs = exphbs.create({ helpers });
 
@@ -23,19 +37,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () =>
     console.log(`Server running on ${PORT}. Visit http://localhost:${PORT}`)
   );
-});
-
-app.get('/', async (req, res) => {
-  try {
-    await User.create({
-      user_name: 'Joe',
-      password: 'w32rfewdaera',
-    });
-  } catch (err) {
-    console.log(err);
-  }
 });
