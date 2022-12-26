@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
       ],
     });
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.render('homepage', { posts });
+    res.render('homepage', { posts, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json({ message: 'Failed...' });
   }
@@ -42,7 +42,7 @@ router.get('/:id', async (req, res) => {
     });
 
     const post = postData.get({ plain: true });
-    res.render('post', { post });
+    res.render('post', { post, loggedIn: req.session.loggedIn });
     console.log(post);
   } catch (err) {
     res.status(400).json({ message: 'Not found...' });
@@ -54,6 +54,14 @@ router.get('/api/login', async (req, res) => {
     res.render('login');
   } catch (err) {
     console.log(err);
+  }
+});
+
+router.get('/api/create', async (req, res) => {
+  try {
+    res.render('create', { loggedIn: req.session.loggedIn });
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to load...' });
   }
 });
 

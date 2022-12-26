@@ -21,7 +21,12 @@
       <ul class='links'>
         <li><a href='/'>Home</a></li>
         <li><a href='#'>Dashboard</a></li>
-        <li><a href='/api/login'>Login</a></li>
+        {{#if loggedIn}}
+          <li><a class='logout-button' href=''>Logout</a></li>
+          <li><a href='/api/create/'>Create New Post</a></li>
+        {{else}}
+          <li><a href='/api/login'>Login</a></li>
+        {{/if}}
       </ul>
       <a style='color: black;' href='/'><div class='logo'>The Tech Blog
           <i class='fa-solid fa-sim-card'></i></div></a>
@@ -31,6 +36,9 @@
         {{{body}}}
       </div>
     </main>
-    <script src='../../js/script.js'></script>
+    {{#if loggedIn}}
+      <script src='../../js/logout.js'></script>
+
+    {{/if}}
   </body>
 </html>

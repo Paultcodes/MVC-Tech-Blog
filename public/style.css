@@ -151,3 +151,11 @@ input {
   flex-direction: column;
   text-align: center;
 }
+
+.create-post-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
