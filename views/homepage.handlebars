@@ -1,3 +1,10 @@
+ {{#if loggedIn}}
+        {{else}}
+      <h2 class='signin-prompt'><a href='/api/login'>Sign In</a> Or
+        <a href='/api/login'> Sign Up</a> To Comment Or Post</h2>
+          
+        {{/if}}
+
 {{#each posts as |post|}}
   <a href='/{{post.id}}'>
     <div class='card'>

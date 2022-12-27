@@ -20,9 +20,9 @@
     <nav class='navbar-section'>
       <ul class='links'>
         <li><a href='/'>Home</a></li>
-        <li><a href='#'>Dashboard</a></li>
         {{#if loggedIn}}
-          <li><a class='logout-button' href=''>Logout</a></li>
+          <li><a href='#'>Dashboard</a></li>
+          <li><button class='logout-button' href=''>Logout</button></li>
           <li><a href='/api/create/'>Create New Post</a></li>
         {{else}}
           <li><a href='/api/login'>Login</a></li>
@@ -33,6 +33,8 @@
     </nav>
     <main>
       <div class='post-section'>
+      
+      
         {{{body}}}
       </div>
     </main>

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const User = require('../../models/User');
+const { User } = require('../../models');
 
 //Create new user
 router.post('/', async (req, res) => {
@@ -10,12 +10,14 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.loggedIn = true;
+      (req.session.user_id = dbUserData.id),
+        (req.session.user_name = dbUserData.username),
+        (req.session.loggedIn = true);
       res.status(200).json(dbUserData);
     });
   } catch (err) {
     res.status(500).json(err);
-    console.log(err)
+    console.log(err);
   }
 });
 
@@ -34,7 +36,6 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
-
     const validPassword = await dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -45,13 +46,15 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.loggedIn = true;
+      (req.session.user_id = dbUserData.id),
+        (req.session.user_name = dbUserData.username),
+        (req.session.loggedIn = true);
       console.log('Session saved!');
 
       res.status(200).json({ message: 'You are now logged in!' });
     });
   } catch (err) {
-    res.status(500).json(err);
+    console.log(err);
   }
 });
 
