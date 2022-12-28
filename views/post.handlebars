@@ -1,3 +1,11 @@
+{{#if loggedIn}}{{else}}
+  <h2 class='signin-prompt'><a href='/api/login'>Sign In</a>
+    Or
+    <a href='/api/login'> Sign Up</a>
+    To Comment Or Post</h2>
+
+{{/if}}
+
 <div class='card'>
   <div class='car-header'>
     <h1 class='single-post-text'>{{post.title}}</h1>
@@ -12,18 +20,22 @@
     </p>
   </div>
 </div>
-<div class='comment-input-section'>
-  <input class='comment-input' type='text' />
-  <button>Comment</button>
-</div>
-<h3 style='text-decoration: underline;'>Comments</h3>
-{{#each post.comments as |all|}}
-  <div class='comments-section'>
-    <p style='font-weight: 800;'>Posted by {{all.user.user_name}} 3/4/23</p>
-
-    <p class='comment'>
-      {{all.comment}}
-
-    </p>
+{{#if loggedIn}}
+  <div class='comment-input-section'>
+    <input class='comment-input' type='text' />
+    <button class="comment-button">Comment</button>
   </div>
-{{/each}}
+  <h3 style='text-decoration: underline;'>Comments</h3>
+  {{#each post.comments as |all|}}
+    <div class='comments-section'>
+      <p style='font-weight: 800;'>Posted by {{all.user.user_name}} 3/4/23</p>
+
+      <p class='comment'>
+        {{all.comment}}
+
+      </p>
+    </div>
+  {{/each}}
+
+{{/if}}
+<script src="../js/comment.js"></script>

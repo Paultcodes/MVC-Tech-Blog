@@ -21,9 +21,9 @@
       <ul class='links'>
         <li><a href='/'>Home</a></li>
         {{#if loggedIn}}
-          <li><a href='#'>Dashboard</a></li>
-          <li><button class='logout-button' href=''>Logout</button></li>
+          <li><a href='/api/dashboard'>Dashboard</a></li>
           <li><a href='/api/create/'>Create New Post</a></li>
+          <li><button class='logout-button' href=''>Logout</button></li>
         {{else}}
           <li><a href='/api/login'>Login</a></li>
         {{/if}}
@@ -33,13 +33,12 @@
     </nav>
     <main>
       <div class='post-section'>
-      
-      
+
         {{{body}}}
       </div>
     </main>
     {{#if loggedIn}}
-      <script src='../../js/logout.js'></script>
+      <script src='/js/logout.js'></script>
 
     {{/if}}
   </body>
