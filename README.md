@@ -1,4 +1,4 @@
-CMS-style Blog Site
+## CMS-style Blog Site
 This is a full-stack web application built to mimic a CMS-style blog site similar to Wordpress. This application allows developers to publish their blog posts and comment on other developers' posts. The site has been built from scratch and deployed to Heroku for ease of access.
 
 The application follows the Model-View-Controller (MVC) paradigm in its architectural structure. The templating language used is Handlebars.js, which helps in creating a consistent layout and separating the view logic from the application logic. The Object-Relational Mapping (ORM) used is Sequelize, which helps in interacting with the database and querying data.
@@ -7,7 +7,7 @@ The authentication system used in this application is the express-session packag
 
 The application allows the user to perform CRUD operations, create, read, update and delete post and comments, on the blog posts and comments. The user can also filter posts by author and view all the comments on a post.
 
-Getting Started
+## Getting Started
 To run this application locally on your machine, you will need to have Node.js and npm (Node Package Manager) installed. Once you have these dependencies set up, you can follow these steps:
 
 Clone the repository to your local machine
@@ -27,7 +27,7 @@ Open the application in your browser at http://localhost:3000/
 Deployment
 The application has been deployed to Heroku and is available for use at the following link: https://your-app-name.herokuapp.com/
 
-Built With
+## Built With
 Node.js
 Express.js - Web framework
 Handlebars.js - Templating language
