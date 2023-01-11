@@ -25,7 +25,7 @@ Copy code
 npm start
 Open the application in your browser at http://localhost:3000/
 Deployment
-The application has been deployed to Heroku and is available for use at the following link: https://your-app-name.herokuapp.com/
+The application has been deployed to Heroku and is available for use at the following link: [https://your-app-name.herokuapp.com/](https://protected-woodland-61514.herokuapp.com/api/login)
 
 ## Built With
 Node.js
