@@ -11,17 +11,13 @@ The application allows the user to perform CRUD operations, create, read, update
 To run this application locally on your machine, you will need to have Node.js and npm (Node Package Manager) installed. Once you have these dependencies set up, you can follow these steps:
 
 Clone the repository to your local machine<br> 
-Copy code<br> 
 git clone https://github.com/<your-username>/CMS-style-blog-site.git<br> 
 Go to the cloned repository<br> 
-Copy code<br> 
 cd CMS-style-blog-site<br> 
 Install the required dependencies<br> 
-Copy code<br> 
 npm install<br> 
 Create a .env file with the necessary environment variables<br> 
 Start the server<br> 
-Copy code<br> 
 npm start<br> 
 Open the application in your browser at http://localhost:3000/<br> 
 Deployment<br> 
