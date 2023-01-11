@@ -11,21 +11,21 @@ The application allows the user to perform CRUD operations, create, read, update
 To run this application locally on your machine, you will need to have Node.js and npm (Node Package Manager) installed. Once you have these dependencies set up, you can follow these steps:
 
 Clone the repository to your local machine<br> 
-Copy code
-git clone https://github.com/<your-username>/CMS-style-blog-site.git
-Go to the cloned repository
-Copy code
-cd CMS-style-blog-site
-Install the required dependencies
-Copy code
-npm install
-Create a .env file with the necessary environment variables
-Start the server
-Copy code
-npm start
-Open the application in your browser at http://localhost:3000/
-Deployment
-The application has been deployed to Heroku and is available for use at the following link: [https://your-app-name.herokuapp.com/](https://protected-woodland-61514.herokuapp.com/api/login)
+Copy code<br> 
+git clone https://github.com/<your-username>/CMS-style-blog-site.git<br> 
+Go to the cloned repository<br> 
+Copy code<br> 
+cd CMS-style-blog-site<br> 
+Install the required dependencies<br> 
+Copy code<br> 
+npm install<br> 
+Create a .env file with the necessary environment variables<br> 
+Start the server<br> 
+Copy code<br> 
+npm start<br> 
+Open the application in your browser at http://localhost:3000/<br> 
+Deployment<br> 
+The application has been deployed to Heroku and is available for use at the following link: [https://your-app-name.herokuapp.com/](https://protected-woodland-61514.herokuapp.com/api/login)<br> 
   ![MVC](https://user-images.githubusercontent.com/111453328/211812463-7390a63c-2da1-4342-824e-9fe42332209d.jpg)
 
 ## Built With
