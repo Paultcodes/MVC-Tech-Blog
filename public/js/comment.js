@@ -21,7 +21,6 @@ const submitCommentHandler = async (event) => {
     }
   }
 
-  console.log(postId);
 };
 
 const commentButton = document

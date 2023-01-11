@@ -23,6 +23,3 @@ const deletePost = async (event) => {
 const deletePostButton = document
   .querySelector('.delete-button')
   .addEventListener('click', deletePost);
-
-
-  console.log('hello')

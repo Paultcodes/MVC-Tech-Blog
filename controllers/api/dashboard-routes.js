@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const { Post, User } = require('../../models');
+const checkIfLogged = require('../../utils/checkLoggedIn');
 
-router.get('/', async (req, res) => {
+router.get('/', checkIfLogged,  async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: {
         user_id: req.session.user_id,
       },
-      attributes: ['id', 'title', 'post'],
+      attributes: ['id', 'title', 'post', 'user_id', 'created_at'],
       include: [
         {
           model: User,
@@ -19,7 +20,7 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
     res.render('dashboard', { posts, loggedIn: req.session.loggedIn });
   } catch (err) {
-    console.log(err);
+    res.status(400).json('Unable to find posts');
   }
 });
 
@@ -29,7 +30,7 @@ router.get('/edit/:id', async (req, res) => {
       where: {
         id: req.params.id,
       },
-      attributes: ['id', 'title', 'post'],
+      attributes: ['id', 'title', 'post', 'user_id', 'created_at'],
       include: [
         {
           model: User,
@@ -41,7 +42,7 @@ router.get('/edit/:id', async (req, res) => {
     const post = postData.get({ plain: true });
     res.render('edit', { post, loggedIn: req.session.loggedIn });
   } catch (err) {
-    console.log(err);
+    res.status(400).json({ message: 'Unable to find post' });
   }
 });
 
@@ -55,7 +56,7 @@ router.delete('/delete/:id', async (req, res) => {
 
     res.status(200).json(deletePost);
   } catch (err) {
-    console.log(err);
+    res.status(500).json({ message: 'Failed to delete post' });
   }
 });
 

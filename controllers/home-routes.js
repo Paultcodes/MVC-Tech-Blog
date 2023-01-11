@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
+const checkIfLogged = require('../utils/checkLoggedIn');
 
-router.get('/', async (req, res) => {
+router.get('/', checkIfLogged,  async (req, res) => {
   try {
     const postData = await Post.findAll({
+      attributes: ['id', 'title', 'post', 'user_id', 'created_at'],
       include: [
         {
           model: User,
@@ -24,7 +26,7 @@ router.get('/:id', async (req, res) => {
       where: {
         id: req.params.id,
       },
-      attributes: ['id', 'title', 'post'],
+      attributes: ['id', 'title', 'post', 'created_at'],
       include: [
         {
           model: User,
@@ -32,7 +34,7 @@ router.get('/:id', async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['id', 'comment', 'post_id', 'user_id'],
+          attributes: ['id', 'comment', 'post_id', 'user_id', 'created_at'],
           include: {
             model: User,
             attributes: ['user_name'],
@@ -43,7 +45,6 @@ router.get('/:id', async (req, res) => {
 
     const post = postData.get({ plain: true });
     res.render('post', { post, loggedIn: req.session.loggedIn });
-    console.log(post);
   } catch (err) {
     res.status(400).json({ message: 'Not found...' });
   }
@@ -53,7 +54,7 @@ router.get('/api/login', async (req, res) => {
   try {
     res.render('login');
   } catch (err) {
-    console.log(err);
+    res.status(500).json(err);
   }
 });
 

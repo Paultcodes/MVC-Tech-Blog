@@ -46,6 +46,7 @@ li {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  padding: 20px;
   margin-top: 3%;
 }
 
@@ -98,6 +99,10 @@ input {
 
 .comment-input {
   width: 500px;
+}
+
+.edit-button {
+  color: black;
 }
 
 @media only screen and (max-width: 900px) {
@@ -163,4 +168,6 @@ input {
 #post-text {
   height: 200px;
   width: 400px;
+  padding: 10px;
+  min-width: 40%;
 }

@@ -4,7 +4,7 @@
     <p class='single-post-text'>Posted by
       {{post.user.user_name}}
       on
-      {{post.created_at}}</p>
+      {{format_date post.created_at}}</p>
   </div>
   <div class='card-text'>
     <p class='single-post-text'>
@@ -13,5 +13,5 @@
   </div>
 </div>
 <button class='delete-button'>Delete</button>
-<button class='edit-post-button'>Edit</button>
-<script src="/js/edit.js"></script>
+<a class="edit-button" href='/api/posts/editPost/{{post.id}}'>Edit</a>
+<script src='/js/edit.js'></script>

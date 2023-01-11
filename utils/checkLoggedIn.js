@@ -1,9 +1,9 @@
-const checkIfLogged = (req, res, next) => {
+const withAuth = (req, res, next) => {
   if (!req.session.user_id) {
-    res.redirect('/login');
+    res.redirect('/api/login');
   } else {
     next();
   }
 };
 
-module.exports = checkIfLogged;
+module.exports = withAuth;

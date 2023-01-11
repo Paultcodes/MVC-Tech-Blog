@@ -12,7 +12,7 @@
     <p class='single-post-text'>Posted by
       {{post.user.user_name}}
       on
-      {{post.created_at}}</p>
+      {{format_date post.created_at}}</p>
   </div>
   <div class='card-text'>
     <p class='single-post-text'>
@@ -23,19 +23,23 @@
 {{#if loggedIn}}
   <div class='comment-input-section'>
     <input class='comment-input' type='text' />
-    <button class="comment-button">Comment</button>
+    <button class='comment-button'>Comment</button>
   </div>
+
+{{/if}}
   <h3 style='text-decoration: underline;'>Comments</h3>
   {{#each post.comments as |all|}}
     <div class='comments-section'>
-      <p style='font-weight: 800;'>Posted by {{all.user.user_name}} 3/4/23</p>
+      <p style='font-weight: 800;'>Posted by {{all.user.user_name}} on  {{format_date created_at}}</p>
 
       <p class='comment'>
         {{all.comment}}
 
       </p>
+      <button data-post-id="{{all.id}}"  data-user-id="{{all.user_id}}" class="delete-comment-btn">Delete</button>
+      <p class="err"></p>
     </div>
   {{/each}}
+<script src='../js/comment.js'></script>
+<script src="../js/deleteComment.js"></script>
 
-{{/if}}
-<script src="../js/comment.js"></script>

@@ -23,4 +23,4 @@ const submitPost = document
   .querySelector('.submit-post')
   .addEventListener('click', submitPostHandler);
 
-console.log('hello world');
+

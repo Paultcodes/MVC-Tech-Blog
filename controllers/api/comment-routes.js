@@ -16,4 +16,27 @@ router.post('/create', async (req, res) => {
   }
 });
 
+router.delete('/delete', async (req, res) => {
+  try {
+    const findComment = await Comment.findOne({
+      where: {
+        id: req.body.postId,
+      },
+    });
+    if (findComment.user_id !== req.session.user_id) {
+      res.status(403).json(findComment)
+      return;
+    } else {
+      const deleteComment = await Comment.destroy({
+        where: {
+          id: req.body.postId,
+        },
+      });
+      res.status(200).json(deleteComment);
+    }
+  } catch (err) {
+    alert('Failed on the backend');
+  }
+});
+
 module.exports = router;
