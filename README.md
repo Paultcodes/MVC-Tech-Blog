@@ -26,8 +26,9 @@ npm start
 Open the application in your browser at http://localhost:3000/
 Deployment
 The application has been deployed to Heroku and is available for use at the following link: [https://your-app-name.herokuapp.com/](https://protected-woodland-61514.herokuapp.com/api/login)
+  ![MVC](https://user-images.githubusercontent.com/111453328/211812463-7390a63c-2da1-4342-824e-9fe42332209d.jpg)
 
-## Built With![MVC](https://user-images.githubusercontent.com/111453328/211812463-7390a63c-2da1-4342-824e-9fe42332209d.jpg)
+## Built With
 
 Node.js
 Express.js - Web framework
